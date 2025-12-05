@@ -9,7 +9,7 @@
             <a href="{{ route('admin.books.create') }}"><i class="uil uil-plus"></i> Create Book</a>
             <a href="{{ route('books.index') }}"><i class="uil uil-book-open"></i> Books</a>
             <a href="#"><i class="uil uil-diary-alt"></i> Categories</a>
-            <a href="#"><i class="uil uil-user"></i> Users</a>
+            <a href="{{ route('admin.users.index') }}"><i class="uil uil-user"></i> Users</a>
             <a href="#"><i class="uil uil-star"></i> Reviews</a>
             <a href="#"><i class="uil uil-setting"></i> Settings</a>
         @endif

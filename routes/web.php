@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\UserController;
 use App\Models\Book;
 
 use App\Http\Controllers\Auth\LoginController;
@@ -57,6 +58,20 @@ Route::middleware(['auth', 'admin'])
         // ✅ Admin book management (NO show route)
         Route::resource('books', BookController::class)
             ->except(['show']);
+
+        
+        Route::get('/users', [UserController::class, 'index'])
+            ->name('users.index');
+
+        Route::patch('/users/{user}/block', [UserController::class, 'block'])
+            ->name('users.block');
+
+        Route::patch('/users/{user}/unblock', [UserController::class, 'unblock'])
+            ->name('users.unblock');
+        
+        Route::delete('/users/{user}', [UserController::class, 'destroy'])
+            ->name('users.destroy');
+
 });
 
 

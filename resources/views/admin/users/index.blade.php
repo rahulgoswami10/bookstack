@@ -1,8 +1,8 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('content')
 
-<h1 class="page-title">Users</h1>
+<h1 class="page-title">Registerd Users</h1>
 
 @if(session('success'))
     <div class="alert alert-success">{{ session('success') }}</div>
@@ -32,19 +32,19 @@
                     @if ($user->status === 'blocked')
                         <span class="badge danger">Blocked</span>
                     @else
-                        <span class="badge success">Unblocked</span>
+                        <span class="badge success">Active</span>
                     @endif
                 </td>
 
                 <td class="actions">
                     @if($user->status === 'active')
-                        <form method="POST" action="{{ route('admin.users.block', $user) }}">
+                        <form method="POST" action="{{ route('admin.users.block', $user->id) }}">
                             @csrf
                             @method('PATCH')
                             <button class="btn warning">Block</button>
                         </form>
                     @else
-                        <form method="POST" action="{{ route('admin.users.unblock', $user) }}">
+                        <form method="POST" action="{{ route('admin.users.unblock', $user->id) }}">
                             @csrf
                             @method('PATCH')
                             <button class="btn success">Unblock</button>
@@ -52,8 +52,8 @@
                     @endif
 
                     <form method="POST"
-                          action="{{ route('admin.users.destroy', $user) }}"
-                          onsubmit="return confirm('Delete this user?')">
+                        action="{{ route('admin.users.destroy', $user->id) }}"
+                        onsubmit="return confirm('Delete this user?')">
                         @csrf
                         @method('DELETE')
                         <button class="btn danger">Delete</button>

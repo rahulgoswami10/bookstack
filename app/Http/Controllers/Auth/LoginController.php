@@ -23,11 +23,8 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended(
-                auth()->user()->role === 'admin'
-                ? '/admin/dashboard'
-                : '/'
-            );
+            // get logged in user
+            $user = auth()->user();
 
             if ($user->status === 'blocked') {
                 auth()->logout();
@@ -36,6 +33,12 @@ class LoginController extends Controller
                     'email' => 'Your account has been blocked by admin.',
                 ]);
             }
+
+            return redirect()->intended(
+                auth()->user()->role === 'admin'
+                ? '/admin/dashboard'
+                : '/'
+            );
 
         }
 
