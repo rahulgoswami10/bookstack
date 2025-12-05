@@ -1,0 +1,347 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+html {
+    font-size: 88%;
+}
+
+/* Body */
+body {
+    background: radial-gradient(circle at top, #0f172a, #020617);
+    color: #e5e7eb;
+    min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+    height: 64px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Logo */
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #a5b4fc;
+    text-decoration: none;
+}
+
+/* Right section */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-link {
+    color: #c7d2fe;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.nav-link:hover {
+    color: #fff;
+}
+
+/* Primary button */
+.btn-primary {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: white !important;
+}
+
+/* User */
+.nav-user {
+    font-size: 0.9rem;
+    color: #cbd5f5;
+}
+
+/* Logout */
+.logout-form button {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 6px 14px;
+    border-radius: 8px;
+    color: #e5e7eb;
+    cursor: pointer;
+}
+
+.logout-form button:hover {
+    background: rgba(255,255,255,0.08);
+}
+
+/* Main */
+.main-content {
+    padding: 40px;
+}
+
+
+/* =========================
+   CREATE BOOK PAGE
+========================= */
+
+/* =========================
+   PAGE LAYOUT CENTERING
+========================= */
+
+.page-wrapper {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2.5rem;
+}
+
+.page-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #f1f5f9;
+    text-align: center;
+}
+
+/* Card / Panel */
+.panel {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.06),
+        rgba(255, 255, 255, 0.02)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 1200px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    animation: fadeSlideIn 0.35s ease;
+}
+
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Form group spacing */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+/* Labels */
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #cbd5f5;
+}
+
+/* Inputs & textarea */
+.form-input {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    font-size: 0.95rem;
+    color: #f8fafc;
+    background: rgba(15, 23, 42, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+/* Focus state */
+.form-input:focus {
+    border-color: #6366f1;
+    background: rgba(15, 23, 42, 0.85);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.25);
+}
+
+/* Textarea fix */
+textarea.form-input {
+    resize: vertical;
+    min-height: 110px;
+}
+
+/* File input refinement */
+input[type="file"].form-input {
+    padding: 0.6rem;
+    cursor: pointer;
+}
+
+/* Primary Button */
+.btn-primary {
+    margin-top: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #ffffff;
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Hover / Active */
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(99, 102, 241, 0.35);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+}
+
+/* ===== Books Page ===== */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2rem;
+}
+
+/* Book Card */
+.book-card {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(14px);
+    border-radius: 12px;
+    padding: 0 0 2rem;
+    text-align: center;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.book-card:hover {
+    /* transform: translateY(-6px); */
+    box-shadow: 0 20px 40px rgba(0,0,0,.35);
+}
+
+/* Cover */
+.book-cover {
+    width: 100%;
+    /* height: 280px; */
+    height: 250px;
+    overflow: hidden;
+    /* border-radius: 12px; */
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+    /* margin-bottom: 1rem;  */
+    overflow: hidden;
+}
+
+.book-cover img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    transition: all 400ms ease-in;
+}
+
+.book-cover img:hover {
+    transform: scale(1.1);
+}
+
+/* Placeholder */
+.placeholder {
+    width: 100%;
+    height: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255,255,255,0.04);
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/* Title */
+.book-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.8rem;
+}
+
+/* Actions */
+.book-actions {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    /* flex-direction: column; */
+    gap: .65rem;
+}
+
+.book-actions a,
+.book-actions button {
+    font-size: 0.85rem;
+    color: #8b8bff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    background-color: hsla(0 10% 20% / .1);
+    backdrop-filter: blur(1rem);
+    padding: .6rem 1.75rem;
+    /* width: 60%; */
+    border-radius: 6px;
+    margin-top: 1rem;
+}
+
+.book-actions button {
+    color: #ff6b6b;
+}
+
+.empty-text {
+    color: #aaa;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--accent);
+    opacity: .45;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: .9rem;
+    transition: all .2s ease;
+}
+
+.read-more:hover {
+    /* transform: translateX(4px); */
+    text-decoration: underline;
+    opacity: 1;
+    /* text-align: start; */
+}
