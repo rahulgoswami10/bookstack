@@ -72,6 +72,15 @@ Route::middleware(['auth', 'admin'])
         Route::delete('/users/{user}', [UserController::class, 'destroy'])
             ->name('users.destroy');
 
+        Route::get('/books/{book}', [BookController::class, 'edit'])
+            ->name('books.edit');
+
+        Route::put('/books/{book}', [BookController::class, 'update'])
+            ->name('books.update');
+
+        Route::delete('/books/{book}', [BookController::class, 'destroy'])
+            ->name('books.destroy');
+
 });
 
 

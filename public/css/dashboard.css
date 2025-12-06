@@ -254,6 +254,14 @@ body {
 
 .recent-book-title {
     font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+}
+
+.recent-book-title i {
+    /* margin-top: 1rem; */
+    padding-top: .5rem;
+    font-size: 1.12rem;
 }
 
 .recent-book-meta {

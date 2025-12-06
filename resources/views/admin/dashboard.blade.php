@@ -24,6 +24,7 @@
                     <div class="recent-book-item">
                         <div class="recent-book-title">
                             {{ $book->title }}
+                            <i class="uil uil-external-link-alt"></i>
                         </div>
 
                         <div class="recent-book-meta">

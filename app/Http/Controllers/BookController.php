@@ -53,7 +53,7 @@ class BookController extends Controller
     }
 
     // Show edit form (admin only)
-    public function edit () {
+    public function edit (Book $book) {
 
         return view('books.edit', compact('book'));
 
@@ -65,32 +65,40 @@ class BookController extends Controller
             
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'cover_image' => 'nullable|image|mimes:jpg,jpeg,png|max;2048',
+            'cover_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
 
         ]);
+
+        $data = $request->only(['title', 'description']);
 
         if ($request->hasFile('cover_image')) {
-            $book->cover_image = $request->file('cover_image')->store('books', 'public');
+            // $book->cover_image = $request->file('cover_image')->store('books', 'public');
+            $data['cover_image'] = $request->file('cover_image')
+                ->store('books', 'public');
         }
 
-        $book->update([
+        $book->update($data);
 
-            'title' => $request->title,
-            'description' => $request->description,
-            'cover_image' => $book->cover_image,
-
-        ]);
-
-        return redirect()->route('books.index')->with('success', 'Book updated successfully');
+        return redirect()
+            ->route('books.index')
+            ->with('success', 'Book updated successfully');
 
     }
 
     // Delete book (admin only)
-    public function destroy () {
+    public function destroy (Book $book) {
 
         $book->delete();
         
-        return redirect()->route('books.index')->with('success', 'Book deleted successfully');
+        // return redirect()->route('books.index')->with('success', 'Book deleted successfully');
+        return back()->with('success', 'Book deleted');
+
+    }
+
+    public function show (Book $book) {
+
+
+        return view('books.show', compact('book'));
 
     }
 }

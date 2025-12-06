@@ -35,31 +35,34 @@
                     </div>
 
                     <div class="book-body">
-                        {{-- Book Title --}}
-                        <h3 class="book-title">
-                            {{ $book->title }}
-                        </h3>
+                        <div class="book-content">
+                            {{-- Book Title --}}
+                            <h3 class="book-title">
+                                {{ $book->title }}
+                            </h3>
 
-                        {{-- Admin Actions --}}
-                        @if (auth()->check() && auth()->user()->role === 'admin') 
-                            <div class="book-actions">
-                                <a href="{{ route('admin.books.edit', $book->id) }}">
-                                    Edit
+                            {{-- Admin Actions --}}
+                            @if (auth()->check() && auth()->user()->role === 'admin') 
+                                <div class="book-actions">
+                                    <a href="{{ route('admin.books.edit', $book->id) }}">
+                                        {{-- edit button --}}
+                                        <i class="uil uil-edit" title="edit"></i>
                                     </a>
 
-                                <form action="{{ route('admin.books.destroy', $book->id) }}" method="POST">
+                                    <form action="{{ route('admin.books.destroy', $book->id) }}" method="POST">
 
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit">Delete</button>
-                                </form>
-                            </div>
-                        @endif
-
+                                        @csrf
+                                        @method('DELETE')
+                                        {{-- delete button --}}
+                                        <button type="submit" title="delete"><i class="uil uil-trash"></i></button> 
+                                    </form>
+                                </div>
+                            @endif
+                        </div>
                         {{-- read more call to action --}}
                         <a href="{{ route('books.show', $book->id) }}" class="read-more">
 
-                            Read more <i class="uil uil-arrow-right"></i>
+                            Read more <i class="uil uil-external-link-alt"></i>
                         </a>
                     </div>
                 </div>
