@@ -689,3 +689,54 @@ input[type="file"].form-input {
         padding: 1.8rem 1.4rem;
     }
 }
+
+
+
+/* user profile page */
+.profile-wrapper {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.profile-card {
+    flex: 1;
+    background: #1e1e1e;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #333;
+}
+
+.profile-card h2 {
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.profile-card label {
+    display: block;
+    margin: 1rem 0 .4rem;
+    color: #ccc;
+}
+
+.profile-card input {
+    width: 100%;
+    padding: .8rem;
+    border-radius: 8px;
+    background: #2b2b2b;
+    border: 1px solid #444;
+    color: #eee;
+}
+
+.btn.primary {
+    margin-top: 1.2rem;
+    padding: .8rem 1.4rem;
+    background: #4a6cff;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}
+
+.btn.primary:hover {
+    background: #3f59d8;
+}

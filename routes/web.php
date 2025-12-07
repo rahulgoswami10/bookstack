@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\UserProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AdminMiddleware;
 
@@ -86,3 +87,19 @@ Route::middleware(['auth', 'admin'])
 
 Route::get('/books/{book}', [BookController::class, 'show'])
     ->name('books.show');
+
+
+Route::middleware(['auth'])
+    ->prefix('user')
+    ->name('user.')
+    ->group(function() {
+
+        Route::get('/profile', [UserProfileController::class, 'index'])
+            ->name('profile');
+
+        Route::patch('/profile/update', [UserProfileController::class, 'updateProfile'])
+            ->name('profile.update');
+
+        Route::patch('/profile/password', [UserProfileController::class, 'updatePassword'])
+            ->name('password.update');
+    });
