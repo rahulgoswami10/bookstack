@@ -19,7 +19,8 @@
     --shadow-sm: 0 2px 10px rgba(0,0,0,0.06);
     --shadow-md: 0 10px 30px rgba(0,0,0,0.08);
 
-    --radius-sm: 8px;
+    /* --radius-sm: 8px; */
+    --radius-sm: 6px;
     --radius-md: 12px;
 }
 
@@ -71,13 +72,13 @@ body {
 
 .nav-middle {
     display: flex;
-    gap: 6rem;
+    gap: 3rem;
     /* justify-content: space-between; */
     /* align-items: center; */
 }
 
 .nav-middle li a {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #111;
 }
 
@@ -114,14 +115,16 @@ body {
 .logout-form button {
     background: transparent;
     border: 1px solid var(--border-light);
-    padding: 6px 14px;
+    padding: 7px 14px;
     border-radius: var(--radius-sm);
     cursor: pointer;
-    color: var(--text-main);
+    color: var(--bg-muted);
+    background: var(--danger);
 }
 
 .logout-form button:hover {
-    background: var(--bg-muted);
+    /* background: var(--bg-muted); */
+    box-shadow: 0 4px 9px rgba(0, 0, 0, .15);
 }
 
 /* =============================== BUTTONS ================================*/

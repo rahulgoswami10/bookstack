@@ -19,7 +19,7 @@
 
             <form method="POST" action="{{ route('logout') }}" class="logout-form">
                 @csrf
-                <button type="submit" class="btn-logout">Logout</button>
+                <button type="submit" class="btn-logout">Logout <i class="uil uil-arrow-right"></i></button>
             </form>
         @else
             <a href="{{ route('login') }}" class="nav-link btn-secondary">Login</a>
