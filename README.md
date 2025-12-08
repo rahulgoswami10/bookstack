@@ -1,6 +1,6 @@
 📚 BookStack
 
-BookStack is a role-based web application built using Laravel 12 (PHP) and MySQL. It is designed for secure and structured content management, where only the admin (author) can manage books and users, while registered users can log in and read published books.
+BookStack is a Documenation & Wiki web application built using Laravel 12 (PHP) and MySQL. It is designed for secure and structured role-based content management, where only the admin (author) can manage books and users, while registered users can log in and read published books.
 
 🚀 Features
 👤 Authentication & Authorization
