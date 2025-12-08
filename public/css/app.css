@@ -1,4 +1,29 @@
-/* Reset */
+/* =============================== ROOT VARIABLES (LIGHT THEME) ================================*/
+:root {
+    --bg-main: #f4f7fb;
+    --bg-navbar: #ffffff;
+    --bg-card: #ffffff;
+    --bg-muted: #f1f5f9;
+
+    --primary: #4a63d8;
+    --primary-hover: #3b52c7;
+    --danger: #ef4444;
+    --success: #22c55e;
+
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --text-light: #ffffff;
+
+    --border-light: #e5e7eb;
+
+    --shadow-sm: 0 2px 10px rgba(0,0,0,0.06);
+    --shadow-md: 0 10px 30px rgba(0,0,0,0.08);
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+}
+
+/* =============================== RESET ================================*/
 * {
     margin: 0;
     padding: 0;
@@ -8,97 +33,120 @@
     list-style: none;
 }
 
-html {
-    font-size: 88%;
+html { 
+    font-size: 90%; 
 }
 
-/* Body */
 body {
-    background: radial-gradient(circle at top, #0f172a, #020617);
-    color: #e5e7eb;
+    background: var(--bg-main);
+    color: var(--text-main);
     min-height: 100vh;
 }
 
-/* Navbar */
+/* =============================== NAVBAR ================================*/
 .navbar {
     height: 64px;
-    padding: 0 40px;
+    padding: 0 36px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    background: rgba(15, 23, 42, 0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: var(--bg-navbar);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+    /* background-color: var(--primary); */
 }
 
-/* Logo */
 .logo {
     font-size: 1.4rem;
     font-weight: 700;
-    color: #a5b4fc;
-    text-decoration: none;
+    color: var(--primary);
 }
 
-/* Right section */
+.nav-left a {
+    /* color: #fff; */
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+}
+
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 18px;
 }
 
 .nav-link {
-    color: #c7d2fe;
-    text-decoration: none;
     font-weight: 500;
-    transition: 0.2s ease;
+    color: var(--text-muted);
+    padding: .5rem 1.2rem;
+    border-radius: 6px;
+    text-transform: uppercase;
 }
 
 .nav-link:hover {
-    color: #fff;
+    /* color: var(--primary); */
+    box-shadow: 0 7px 12px rgba(0, 0, 0, 0.24);
 }
 
-/* Primary button */
-.btn-primary {
-    background: linear-gradient(135deg, #6366f1, #8b5cf6);
-    padding: 8px 16px;
-    border-radius: 8px;
-    color: white !important;
-}
-
-/* User */
 .nav-user {
-    font-size: 0.9rem;
-    color: #cbd5f5;
+    font-size: .85rem;
+    color: var(--text-muted);
 }
 
 /* Logout */
 .logout-form button {
     background: transparent;
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 1px solid var(--border-light);
     padding: 6px 14px;
-    border-radius: 8px;
-    color: #e5e7eb;
+    border-radius: var(--radius-sm);
     cursor: pointer;
+    color: var(--text-main);
 }
 
 .logout-form button:hover {
-    background: rgba(255,255,255,0.08);
+    background: var(--bg-muted);
 }
 
-/* Main */
+/* =============================== BUTTONS ================================*/
+.btn {
+    padding: .65rem 1.2rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+}
+
+.btn-danger {
+    background: var(--danger);
+    color: #fff;
+}
+
+.btn-secondary {
+    background: var(--bg-muted);
+    border: 1px solid var(--border-light);
+}
+
+/* =============================== LAYOUT ================================*/
+
 .main-content {
     padding: 40px;
 }
 
-
-/* =========================
-   CREATE BOOK PAGE
-========================= */
-
-/* =========================
-   PAGE LAYOUT CENTERING
-========================= */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+}
 
 .page-wrapper {
     min-height: calc(100vh - 120px);
@@ -109,25 +157,30 @@ body {
 }
 
 .page-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
-    color: #f1f5f9;
-    text-align: center;
+}
+
+
+
+/* =============================== CARDS / PANELS ================================*/
+
+.panel,
+.book-card,
+.profile-card,
+.auth-card,
+.reader-content {
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
 }
 
 /* Card / Panel */
 .panel {
-    background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0.06),
-        rgba(255, 255, 255, 0.02)
-    );
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
+
     padding: 2rem;
     max-width: 1200px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
     animation: fadeSlideIn 0.35s ease;
 }
 
@@ -142,93 +195,81 @@ body {
     }
 }
 
-/* Form group spacing */
+/* =============================== FORMS ================================*/
+
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
-/* Labels */
-.form-label {
+.form-group label {
+    font-size: .8rem;
+    color: var(--text-muted);
+    margin-bottom: .3rem;
     display: block;
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #cbd5f5;
 }
 
-/* Inputs & textarea */
-.form-input {
+.form-input,
+.form-group input,
+textarea {
     width: 100%;
-    padding: 0.75rem 0.9rem;
-    font-size: 0.95rem;
-    color: #f8fafc;
-    background: rgba(15, 23, 42, 0.65);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 10px;
+    padding: .7rem .9rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-light);
+    background: #fff;
+}
+
+.form-input:focus,
+.form-group input:focus,
+textarea:focus {
     outline: none;
-    transition: all 0.25s ease;
+    border-color: var(--primary);
 }
 
-/* Focus state */
-.form-input:focus {
-    border-color: #6366f1;
-    background: rgba(15, 23, 42, 0.85);
-    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.25);
-}
+/* =============================== AUTH (LOGIN / REGISTER) ================================*/
 
-/* Textarea fix */
-textarea.form-input {
-    resize: vertical;
-    min-height: 110px;
-}
-
-/* File input refinement */
-input[type="file"].form-input {
-    padding: 0.6rem;
-    cursor: pointer;
-}
-
-/* Primary Button */
-.btn-primary {
-    margin-top: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #ffffff;
-    background: linear-gradient(135deg, #6366f1, #4f46e5);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.25s ease;
-    display: inline-flex;
+.auth-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 0.5rem;
+    background: linear-gradient(135deg, #cbd5f5, #e0e7ff);
 }
 
-/* Hover / Active */
-.btn-primary:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 10px 24px rgba(99, 102, 241, 0.35);
+.auth-card {
+    width: 360px;
+    padding: 2.2rem;
+    text-align: center;
 }
 
-.btn-primary:active {
-    transform: translateY(0);
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+.auth-avatar {
+    width: 100px;
+    height: 100px;
+    background: #e5e7eb;
+    border-radius: 50%;
+    margin: 0 auto 1.2rem;
 }
 
-/* ===== Books Page ===== */
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 3rem 1.5rem;
-}
+/* =============================== BOOKS GRID ================================*/
 
 .page-header {
+    /* color: #111; */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.page-header h1 {
+    color: #111;
+}
+
+.page-header button {
+    background-color: var(--primary);
+    padding: .65rem 1.2rem;
+}
+
+.page-header button a {
+    color: #fff;
 }
 
 .books-grid {
@@ -237,48 +278,35 @@ input[type="file"].form-input {
     gap: 2rem;
 }
 
-/* Book Card */
 .book-card {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(14px);
+    /* background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(14px); */
     border-radius: 12px;
     padding: 0 0 2rem;
     text-align: center;
-    /* transition: transform .3s ease, box-shadow .3s ease; */
-    transition: all 300ms ease;
+    overflow: hidden;
+    transition: transform .2s ease;
 }
 
 .book-card:hover {
-    transform: translateY(-6px);
-    /* cursor: pointer; */
+    transform: translateY(-4px);
     box-shadow: 0 20px 40px rgba(0,0,0,.35);
 }
 
-/* Cover */
 .book-cover {
     width: 100%;
-    /* height: 280px; */
-    /* height: 250px; */
     overflow: hidden;
-    /* border-radius: 12px; */
     border-top-right-radius: 12px;
     border-top-left-radius: 12px;
-    /* margin-bottom: 1rem;  */
-    overflow: hidden;
 }
 
 .book-cover img {
     width: 100%;
     height: 180px;
     object-fit: cover;
-    transition: all 400ms ease-in;
-}
-
-.book-cover img:hover {
-    /* transform: scale(1.1); */
 }
 
 /* Placeholder */
@@ -294,6 +322,7 @@ input[type="file"].form-input {
 }
 
 .book-body {
+    padding: 0 .5rem 1rem;
     display: flex;
     /* justify-content: flex-start; */
     flex-direction: column;
@@ -303,17 +332,13 @@ input[type="file"].form-input {
 .book-content {
     display: flex;
     justify-content: space-between;
-    /* align-items: center; */
+    align-items: center;
     padding: 0 1rem 1rem;
 }
 
-/* Title */
 .book-title {
-    /* font-size: 1rem; */
-    font-size: 14px;
+    font-size: .95rem;
     font-weight: 600;
-    color: #fff;
-    /* margin-bottom: 0.8rem; */
 }
 
 /* Actions */
@@ -349,17 +374,19 @@ input[type="file"].form-input {
 }
 
 .empty-text {
-    color: #aaa;
+    /* color: #aaa; */
+    color: red;
 }
 
+
 .read-more {
+    font-size: .8rem;
+    color: var(--primary);
     display: inline-block;
-    /* margin-top: 12px; */
-    color: var(--accent);
     opacity: .45;
     font-weight: 600;
     text-decoration: none;
-    font-size: .9rem;
+    /* font-size: .9rem; */
     transition: all .2s ease;
     text-align: left;
     padding: 0 1rem 0;
@@ -380,6 +407,7 @@ input[type="file"].form-input {
     color: #f1f5f9;
 }
 
+
 /* Success alert */
 .alert {
     padding: 0.75rem 1rem;
@@ -394,35 +422,48 @@ input[type="file"].form-input {
     border: 1px solid rgba(34, 197, 94, 0.3);
 }
 
-/* Users table */
+/* =============================== USERS TABLE ================================*/
+.page-title {
+    color: #111;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
 .users-table {
     width: 100%;
     border-collapse: collapse;
-    background: #0f172a;
+    background: var(--bg-card);
+    box-shadow: var(--shadow-sm);
     border-radius: 10px;
     overflow: hidden;
 }
 
 /* Header */
 .users-table thead {
-    background: #020617;
+    /* background: var(--primary-hover); */
+    background: powderblue;
+    color: black;
 }
 
 .users-table th {
     text-align: left;
     padding: 14px 16px;
-    font-size: 0.8rem;
+    /* padding: 14px; */
+    font-size: .75rem;
     text-transform: uppercase;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border-light);
     letter-spacing: 0.05em;
-    color: #94a3b8;
 }
 
-/* Body */
 .users-table td {
+    padding: 14px;
+    border-bottom: 1px solid var(--border-light);
     padding: 14px 16px;
     font-size: 0.9rem;
-    color: #e5e7eb;
-    border-top: 1px solid rgba(148, 163, 184, 0.07);
+    /* color: #e5e7eb; */
+    /* border-top: 1px solid rgba(148, 163, 184, 0.07); */
 }
 
 .users-table tr:hover {
@@ -432,21 +473,21 @@ input[type="file"].form-input {
 /* Badges */
 .badge {
     display: inline-block;
+    font-size: .7rem;
     padding: 4px 10px;
     border-radius: 999px;
-    font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
 }
 
 .badge.success {
-    background: rgba(34, 197, 94, 0.15);
-    color: #22c55e;
+     background: #dcfce7; 
+     color: #15803d; 
 }
 
-.badge.danger {
-    background: rgba(239, 68, 68, 0.15);
-    color: #ef4444;
+.badge.danger { 
+    background: #fee2e2; 
+    color: #b91c1c; 
 }
 
 /* Actions column */
@@ -454,18 +495,6 @@ input[type="file"].form-input {
     display: flex;
     gap: 8px;
     align-items: center;
-}
-
-/* Buttons */
-.btn {
-    padding: 6px 12px;
-    border-radius: 6px;
-    border: none;
-    font-size: 0.75rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    white-space: nowrap;
 }
 
 .btn.warning {
@@ -500,13 +529,13 @@ input[type="file"].form-input {
     margin: 0;
 }
 
-
 /*============ edit page design ============*/
 
 /* Page background */
 .book-edit-wrapper {
     min-height: 100vh;
-    background:  radial-gradient(circle at top, #0f1736, #070b1a);
+    /* background:  radial-gradient(circle at top, #0f1736, #070b1a); */
+    background: var(--bg-muted);
     display: flex;
     justify-content: center;
     padding: 60px 20px;
@@ -516,10 +545,12 @@ input[type="file"].form-input {
 .book-paper {
     width: 100%;
     max-width: 900px;
-    background: linear-gradient(180deg, #101a3c, #0b122c);
+    /* background: linear-gradient(180deg, #101a3c, #0b122c); */
+    background: var(--bg-main);
     padding: 50px;
     border-radius: 12px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    /* box-shadow: 0 15px 40px rgba(0,0,0,0.6); */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     color: #e6e8f0;
 }
 
@@ -528,7 +559,8 @@ input[type="file"].form-input {
     font-size: 2.1rem;
     margin-bottom: 35px;
     text-align: center;
-    color: #ffffff;
+    /* color: #ffffff; */
+    color: #111;
 }
 
 /* Form spacing */
@@ -539,7 +571,8 @@ input[type="file"].form-input {
 /* Labels */
 .form-group label {
     font-size: 0.95rem;
-    color: #aab0d6;
+    /* color: #aab0d6; */
+    color: gray;
     margin-bottom: 6px;
     display: block;
 }
@@ -550,8 +583,10 @@ input[type="file"].form-input {
     font-size: 1.35rem;
     padding: 14px;
     border-radius: 8px;
-    background: #0f1733;
-    color: #ffffff;
+    /* background: #0f1733; */
+    background: var(--bg-navbar);
+    /* color: #ffffff; */
+    color: #111;
     border: 1px solid #25306c;
 }
 
@@ -567,8 +602,10 @@ input[type="file"].form-input {
     line-height: 1.9;
     padding: 24px;
     border-radius: 10px;
-    background: #0d142f;
-    color: #e8ebff;
+    /* background: #0d142f; */
+    background: var(--bg-muted);
+    /* color: #e8ebff; */
+    color: #111;
     border: 1px solid #25306c;
     font-family: serif;
     resize: vertical;
@@ -599,14 +636,14 @@ input[type="file"].form-input {
 }
 
 
-
-/* ==============================
-   Reader Page – Kindle Style
-   ============================== */
+/* ===============================
+   READER (KINDLE STYLE)
+================================*/
 
 .reader-wrapper {
-    max-width: 880px;
+    max-width: 900px;
     margin: 0 auto;
+    /* padding: 3rem 1.5rem; */
     padding: 3rem 1.5rem 4rem;
     color: #e5e7eb; /* soft white */
     background: transparent;
@@ -624,34 +661,34 @@ input[type="file"].form-input {
     transition: color 0.2s ease;
 }
 
+
 .back-link:hover {
-    color: #ffffff;
+    /* color: #ffffff; */
+    color: blue;
 }
 
-/* Main Reader Container */
 .reader-content {
-    background: rgba(17, 24, 39, 0.9); /* dark card */
+    /* padding: 3rem; */
     border-radius: 14px;
     padding: 3rem 3.5rem;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+    /* box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45); */
 }
 
-/* Book Title */
 .reader-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
+    margin-bottom: 2rem;
     font-weight: 600;
     line-height: 1.3;
-    margin-bottom: 2.2rem;
-    color: #f9fafb;
+    /* color: #f9fafb; */
+    color: grey;
     opacity: .6;
 }
 
-/* Body Text */
 .reader-body {
     font-size: 1.05rem;
     line-height: 1.9;
+    color: #374151;
     letter-spacing: 0.015em;
-    color: #d1d5db; /* Kindle-like gray */
     white-space: pre-line; /* preserves line breaks */
 }
 
@@ -659,6 +696,7 @@ input[type="file"].form-input {
 .reader-body p {
     margin-bottom: 1.4rem;
 }
+
 
 /* ==============================
    Responsive Improvements
@@ -692,51 +730,97 @@ input[type="file"].form-input {
 
 
 
-/* user profile page */
-.profile-wrapper {
+/* ===============================
+   USER PROFILE PAGE
+================================*/
+
+.profile-page {
+    min-height: calc(100vh - 64px);
     display: flex;
-    gap: 2rem;
-    margin-top: 2rem;
+    justify-content: center;
+    align-items: center;
+    /* background: radial-gradient(circle at top, #0f172a, #020617); */
 }
 
 .profile-card {
-    flex: 1;
-    background: #1e1e1e;
+    width: 420px;
     padding: 2rem;
-    border-radius: 12px;
-    border: 1px solid #333;
+    text-align: left;
+    /* width: 100%; */
 }
 
-.profile-card h2 {
-    margin-bottom: 1.5rem;
+.profile-avatar {
+    width: 90px;
+    height: 90px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.profile-avatar span {
+    font-size: 2.5rem;
+    font-weight: 700;
     color: #fff;
 }
 
-.profile-card label {
-    display: block;
-    margin: 1rem 0 .4rem;
-    color: #ccc;
+.profile-name {
+    /* color: #e5e7eb; */
+    font-size: 1.3rem;
+    margin-bottom: 0.2rem;
 }
 
-.profile-card input {
+.profile-email {
+    /* color: #94a3b8; */
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.profile-divider {
+    /* height: 1px;
+    background: #1e293b; */
+    margin: 1.8rem 0;
+}
+
+.profile-card button {
     width: 100%;
-    padding: .8rem;
+    padding: 0.75rem;
+    margin-top: 0.6rem;
     border-radius: 8px;
-    background: #2b2b2b;
-    border: 1px solid #444;
-    color: #eee;
-}
-
-.btn.primary {
-    margin-top: 1.2rem;
-    padding: .8rem 1.4rem;
-    background: #4a6cff;
     border: none;
-    border-radius: 8px;
-    color: white;
+    font-weight: 600;
     cursor: pointer;
 }
 
-.btn.primary:hover {
-    background: #3f59d8;
+
+/*================ footer ================*/
+footer {
+    /* height:  */
+    background-color: var(--primary);
+}
+
+.footer__container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+    padding: 2rem 0;
+}
+
+.footer__links {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+}
+
+.footer__links h3 {
+    color: lightgrey;
+}
+
+.footer__links li {
+    color: #eeeeee;
 }

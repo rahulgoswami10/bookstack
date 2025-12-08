@@ -1,56 +1,63 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="profile-page">
 
-<h1 class="page-title">Profile Page</h1>
-
-@if(session('success'))
-    <div class="alert success">
-        {{ session('success') }}
-    </div>
-@endif
-
-<div class="profile-wrapper">
-
-    {{-- LEFT: Basic Details --}}
     <div class="profile-card">
-        <h2>Update Profile</h2>
 
-        <form action="{{ route('user.profile.update') }}" method="POST">
+        <div class="profile-avatar">
+            <span>{{ strtoupper(substr($user->name, 0, 1)) }}</span>
+        </div>
+
+        <h2 class="profile-name">{{ $user->name }}</h2>
+        <p class="profile-email">{{ $user->email }}</p>
+
+        <div class="profile-divider"></div>
+
+        {{-- Update Profile --}}
+        <form method="POST" action="{{ route('user.profile.update') }}">
+            @csrf
+            @method('PUT')
+
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" value="{{ $user->name }}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" value="{{ $user->email }}" required>
+            </div>
+
+            <button class="btn-primary">Save Changes</button>
+        </form>
+
+        <div class="profile-divider"></div>
+
+        {{-- Change Password --}}
+        <form method="POST" action="{{ route('user.password.update') }}">
             @csrf
             @method('PATCH')
 
-            <label>Name</label>
-            <input type="text" name="name" value="{{ $user->name }}" required>
+            <div class="form-group">
+                <label>Current Password</label>
+                <input type="password" name="current_password" required>
+            </div>
 
-            <label>Email</label>
-            <input type="email" name="email" value="{{ $user->email }}" required>
+            <div class="form-group">
+                <label>New Password</label>
+                <input type="password" name="new_password" required>
+            </div>
 
-            <button type="submit" class="btn primary">Save Changes</button>
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" name="new_password_confirmation" required>
+            </div>
+
+            <button class="btn-primary">Update Password</button>
         </form>
+
     </div>
-
-    {{-- RIGHT: Password Change --}}
-    <div class="profile-card">
-        <h2>Change Password</h2>
-
-        <form action="{{ route('user.password.update') }}" method="POST">
-            @csrf
-            @method('PATCH')
-
-            <label>Current Password</label>
-            <input type="password" name="current_password" required>
-
-            <label>New Password</label>
-            <input type="password" name="new_password" required>
-
-            <label>Confirm New Password</label>
-            <input type="password" name="new_password_confirmation" required>
-
-            <button type="submit" class="btn primary">Update Password</button>
-        </form>
-    </div>
-
 </div>
-
 @endsection
+

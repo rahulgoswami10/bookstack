@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
+// use App\Http\Controllers\Admin\DashboardController;
 use App\Models\Book;
 
 use App\Http\Controllers\Auth\LoginController;
@@ -45,15 +47,18 @@ Route::middleware(['auth', 'admin'])
     ->name('admin.')
     ->group(function () {
 
-        Route::get('/dashboard', function () {
+        Route::get('/dashboard', [DashboardController::class, 'index'])
+            ->name('dashboard');
 
-            $recentBooks = Book::orderBy('created_at', 'desc')
-                ->take(5)
-                ->get();
+        // Route::get('/dashboard', function () {
 
-            return view('admin.dashboard', compact('recentBooks'));
+        //     $recentBooks = Book::orderBy('created_at', 'desc')
+        //         ->take(5)
+        //         ->get();
 
-        })->name('dashboard');
+        //     return view('admin.dashboard', compact('recentBooks'));
+
+        // })->name('dashboard');
 
 
         // ✅ Admin book management (NO show route)
@@ -97,7 +102,7 @@ Route::middleware(['auth'])
         Route::get('/profile', [UserProfileController::class, 'index'])
             ->name('profile');
 
-        Route::patch('/profile/update', [UserProfileController::class, 'updateProfile'])
+        Route::put('/profile/update', [UserProfileController::class, 'updateProfile'])
             ->name('profile.update');
 
         Route::patch('/profile/password', [UserProfileController::class, 'updatePassword'])

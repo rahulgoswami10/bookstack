@@ -1,6 +1,6 @@
 <nav class="navbar">
     <div class="nav-left">
-        <a href="">BookStack</a>
+        <a href="">📚 BookStack</a>
     </div>
 
     <div class="nav-right">
@@ -14,7 +14,7 @@
                 <button type="submit" class="btn-logout">Logout</button>
             </form>
         @else
-            <a href="{{ route('login') }}" class="nav-link">Login</a>
+            <a href="{{ route('login') }}" class="nav-link btn-secondary">Login</a>
             <a href="{{ route('register') }}" class="nav-link btn-primary">Register</a>
         @endauth
     </div>

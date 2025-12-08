@@ -38,12 +38,12 @@ class UserProfileController extends Controller
     // Update password
     public function updatePassword(Request $request) {
 
-        $user = Auth::user();
-
         $request->validate([
             'current_password' => 'required',
             'new_password' => 'required|min:6|confirmed',
         ]);
+
+        $user = Auth::user();
 
         if (!Hash::check($request->current_password, $user->password)) {
 

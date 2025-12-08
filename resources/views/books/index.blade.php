@@ -10,9 +10,9 @@
 
         {{-- create book button --}}
         @if (auth()->check() && auth()->user()->role === 'admin')
-            <a href="{{ route('admin.books.create') }}" class="btn-primary">
-                + Create Book
-            </a>
+            <button class="btn">
+                <a href="{{ route('admin.books.create') }}">+ Create Book</a>
+            </button>
         @endif
     </div>
 
