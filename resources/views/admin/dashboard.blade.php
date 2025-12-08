@@ -9,26 +9,38 @@
     </div>
 
     <section class="stats-grid">
-        @include('components.stat-card', [
-            'title' => 'Total Books',
-            'value' => $totalBooks
-        ])
+        <div class="tbooks">
+            <i class="uil uil-book-open"></i>
+            @include('components.stat-card', [
+                'title' => 'Total Books',
+                'value' => $totalBooks
+            ])
+        </div>
 
-        @include('components.stat-card', [
-            'title' => 'Users',
-            'value' => $totalUsers
-        ])
+        <div class="tusers">
+            <i class="uil uil-users-alt"></i>
+            @include('components.stat-card', [
+                'title' => 'Users',
+                'value' => $totalUsers
+            ])
+        </div>
 
         {{-- Static for now --}}
-        @include('components.stat-card', [
-            'title' => 'Categories',
-            'value' => 8
-        ])
+        <div class="tcategory">
+             <i class="uil uil-pathfinder"></i>
+            @include('components.stat-card', [
+                'title' => 'Categories',
+                'value' => 8
+            ])
+        </div>
 
-        @include('components.stat-card', [
-            'title' => 'Reviews',
-            'value' => 240
-        ])
+        <div class="treviews">
+            <i class="uil uil-fire"></i>
+            @include('components.stat-card', [
+                'title' => 'Reviews',
+                'value' => 240
+            ])
+        </div>
     </section>
 
 

@@ -69,6 +69,23 @@ body {
     font-weight: 600;
 }
 
+.nav-middle {
+    display: flex;
+    gap: 6rem;
+    /* justify-content: space-between; */
+    /* align-items: center; */
+}
+
+.nav-middle li a {
+    font-size: 1.1rem;
+    color: #111;
+}
+
+.nav-middle li a:hover {
+    cursor: pointer;
+    color: var(--primary);
+}
+
 .nav-right {
     display: flex;
     align-items: center;
@@ -120,6 +137,11 @@ body {
 .btn-primary {
     background: var(--primary);
     color: #fff;
+    padding: .65rem 1.2rem;
+    border: none;
+    cursor: pointer;
+    transition: .2s;
+    border-radius: 6px;
 }
 
 .btn-primary:hover {
@@ -355,22 +377,25 @@ textarea:focus {
     /* font-size: 0.85rem; */
     display: block;
     font-size: 1.12rem;
-    color: #8b8bff;
+    /* color: #8b8bff; */
+    color: #111;
     background: none;
     border: none;
     cursor: pointer;
-    background-color: hsla(0 10% 20% / .1);
-    backdrop-filter: blur(1rem);
+    background-color: #e5e5e5;
+    /* background-color: hsla(0 10% 20% / .1);
+    backdrop-filter: blur(1rem); */
     /* padding: .6rem 1.75rem; */
-    padding: .5rem .75rem;
+    padding: .55rem .75rem;
     /* width: 60%; */
-    border-radius: 50%;
+    border-radius: 8px;
+    /* border-radius: 50%; */
     /* margin-top: 1rem; */
 }
 
 .book-actions button {
     /* color: #ff6b6b; */
-    color: #F32F2F;
+    /* color: #F32F2F; */
 }
 
 .empty-text {
@@ -383,7 +408,7 @@ textarea:focus {
     font-size: .8rem;
     color: var(--primary);
     display: inline-block;
-    opacity: .45;
+    /* opacity: .45; */
     font-weight: 600;
     text-decoration: none;
     /* font-size: .9rem; */
@@ -395,7 +420,7 @@ textarea:focus {
 .read-more:hover {
     /* transform: translateX(4px); */
     text-decoration: underline;
-    opacity: 1;
+    opacity: .75;
     /* text-align: start; */
 }
 
@@ -800,8 +825,9 @@ textarea:focus {
 
 /*================ footer ================*/
 footer {
-    /* height:  */
+    /* height: 100%; */
     background-color: var(--primary);
+    margin-top: 4rem;
 }
 
 .footer__container {
@@ -818,9 +844,22 @@ footer {
 }
 
 .footer__links h3 {
-    color: lightgrey;
+    /* color: lightgrey; */
+    color: #111;
 }
 
 .footer__links li {
     color: #eeeeee;
+    font-size: .95rem;
+}
+
+footer .copyright {
+    text-align: center;
+    margin-top: .85rem;
+    padding-bottom: 1rem;
+}
+
+.copyright span {
+    font-size: .8rem;
+    color: lightgrey;
 }

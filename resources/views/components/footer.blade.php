@@ -34,6 +34,6 @@
         </div>
     </div>
     <div class="copyright">
-        <span>&copy; Rahul Goswami | All Rights Reserved</span>
+        <span>&copy; Rahul Goswami . All Rights Reserved</span>
     </div>
 </footer>
