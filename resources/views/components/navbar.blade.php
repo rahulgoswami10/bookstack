@@ -4,8 +4,8 @@
     </div>
 
     <div class="nav-middle">
-        <li><a href="">Home</a></li>
-        <li><a href="">About Us</a></li>
+        <li><a href="{{ route('books.index') }}">Home</a></li>
+        <li><a href="{{ route('about') }}">About Us</a></li>
         <li><a href="">Documentation</a></li>
         <li><a href="">Platform</a></li>
         <li><a href="">Support</a></li>

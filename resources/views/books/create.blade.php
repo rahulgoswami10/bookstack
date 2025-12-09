@@ -1,10 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="page-wrapper">
+@push('scripts')
+<script src="https://cdn.tiny.cloud/1/06rvyx8fpq7gbg9qkjo0c0fgrs5t46khlfdbn1b549mb03j9/tinymce/8/tinymce.min.js" referrerpolicy="origin" crossorigin="anonymous"></script>
+@stack('scripts');
+<script>
+tinymce.init({
+    selector: '#description',
+    height: 300,
+    menubar: false,
+    plugins: 'lists link image table code',
+    toolbar: 'undo redo | bold italic underline | alignleft aligncenter alignright | bullist numlist | link image | code',
+    content_style: "body { font-family: Inter, sans-serif; font-size:14px }"
+});
+</script>
+@endpush
+
+<div class="page-create-wrapper">
+
     <h1 class="page-title">Create New Book</h1>
 
-    <div class="panel">
+    <div class="create-panel">
         <form action="{{ route('admin.books.store') }}" 
             method="POST" 
             enctype="multipart/form-data">
@@ -26,10 +42,10 @@
             <div class="form-group">
                 <label class="form-label" for="description">Book Description</label>
                 <textarea 
-                    class="form-input" 
+                    class="description-textarea" 
                     name="description" 
                     id="description" 
-                    rows="4"
+                    rows="12"
                     required
                 ></textarea>
             </div>

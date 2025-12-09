@@ -21,12 +21,12 @@ use App\Http\Middleware\AdminMiddleware;
 Route::get('/', [BookController::class, 'index'])->name('books.index');
 
 
-/*
-|--------------------------------------------------------------------------
-| Auth Routes
-|--------------------------------------------------------------------------
-*/
+/*============= About US Page Routes =============*/
+Route::view('/about', 'pages.about')
+    ->name('about');
 
+
+/*============= Auth Routes =============*/
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 
@@ -36,12 +36,8 @@ Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 
-/*
-|--------------------------------------------------------------------------
-| Admin Routes
-|--------------------------------------------------------------------------
-*/
 
+/*============= Admin Routes =============*/
 Route::middleware(['auth', 'admin'])
     ->prefix('admin')
     ->name('admin.')
@@ -94,6 +90,7 @@ Route::get('/books/{book}', [BookController::class, 'show'])
     ->name('books.show');
 
 
+/*============= Normal User accessible Routes =============*/
 Route::middleware(['auth'])
     ->prefix('user')
     ->name('user.')

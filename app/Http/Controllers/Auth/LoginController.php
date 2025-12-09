@@ -37,7 +37,7 @@ class LoginController extends Controller
             return redirect()->intended(
                 auth()->user()->role === 'admin'
                 ? '/admin/dashboard'
-                : '/'
+                : '/user/profile'
             );
 
         }
