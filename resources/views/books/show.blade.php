@@ -15,12 +15,12 @@
 
     <article class="reader-content">
         <h1 class="reader-title">
-            {{ $book->title }}
+            {!! $book->title !!}
         </h1>
 
         <div class="reader-body">
             {{-- {{ $book->description }} --}}
-             {!! nl2br(e($book->description)) !!}
+             {!! $book->description !!}
         </div>
     </article>
 
