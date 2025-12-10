@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@push('scripts')
+{{-- @push('scripts')
 <script src="https://cdn.tiny.cloud/1/06rvyx8fpq7gbg9qkjo0c0fgrs5t46khlfdbn1b549mb03j9/tinymce/8/tinymce.min.js" referrerpolicy="origin" crossorigin="anonymous"></script>
 @stack('scripts');
 <script>
@@ -14,7 +14,7 @@ tinymce.init({
     content_style: "body { font-family: Inter, sans-serif; font-size:14px }"
 });
 </script>
-@endpush
+@endpush --}}
 
 <div class="page-create-wrapper">
 

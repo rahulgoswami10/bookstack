@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-     @stack('scripts')
+     {{-- @stack('scripts') --}}
 </head>
 <body>
 

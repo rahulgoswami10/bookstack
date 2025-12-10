@@ -19,8 +19,8 @@
         </h1>
 
         <div class="reader-body">
-            {{-- {{ $book->description }} --}}
-             {!! $book->description !!}
+            {{ $book->description }}
+             {{-- {!! $book->description !!} --}}
         </div>
     </article>
 
